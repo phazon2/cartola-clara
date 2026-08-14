@@ -66,6 +66,40 @@ export default function ProductoUi({ p }) {
 
   return (
     <main>
+      {!result && (
+        <form className="card no-print" onSubmit={onSubmit}>
+          <div className="tabs">
+            <button type="button" className={mode === "archivo" ? "active" : ""} onClick={() => setMode("archivo")}>
+              Subir documento
+            </button>
+            <button type="button" className={mode === "texto" ? "active" : ""} onClick={() => setMode("texto")}>
+              Escribirlo
+            </button>
+          </div>
+
+          {mode === "archivo" ? (
+            <>
+              <label>{p.inputLabel}</label>
+              <input
+                type="file"
+                accept="image/jpeg,image/png,image/webp,application/pdf"
+                onChange={(e) => setFile(e.target.files[0] || null)}
+              />
+            </>
+          ) : (
+            <>
+              <label>{p.inputAlt}</label>
+              <textarea placeholder={p.altPlaceholder} value={texto} onChange={(e) => setTexto(e.target.value)} />
+            </>
+          )}
+
+          <button className="btn" disabled={loading}>
+            {loading ? "Analizando…" : "Ver mi resultado gratis"}
+          </button>
+          {error && <div className="error">{error}</div>}
+        </form>
+      )}
+
       <h1 className="no-print">{p.tagline}</h1>
       <p className="pitch no-print">{p.subtitulo}</p>
       <p className="claim no-print">{p.claim}</p>
@@ -99,40 +133,6 @@ export default function ProductoUi({ p }) {
             </div>
           )}
         </>
-      )}
-
-      {!result && (
-        <form className="card no-print" onSubmit={onSubmit}>
-          <div className="tabs">
-            <button type="button" className={mode === "archivo" ? "active" : ""} onClick={() => setMode("archivo")}>
-              Subir documento
-            </button>
-            <button type="button" className={mode === "texto" ? "active" : ""} onClick={() => setMode("texto")}>
-              Escribirlo
-            </button>
-          </div>
-
-          {mode === "archivo" ? (
-            <>
-              <label>{p.inputLabel}</label>
-              <input
-                type="file"
-                accept="image/jpeg,image/png,image/webp,application/pdf"
-                onChange={(e) => setFile(e.target.files[0] || null)}
-              />
-            </>
-          ) : (
-            <>
-              <label>{p.inputAlt}</label>
-              <textarea placeholder={p.altPlaceholder} value={texto} onChange={(e) => setTexto(e.target.value)} />
-            </>
-          )}
-
-          <button className="btn" disabled={loading}>
-            {loading ? "Analizando…" : "Ver mi resultado gratis"}
-          </button>
-          {error && <div className="error">{error}</div>}
-        </form>
       )}
 
       {loading && <div className="loading">La IA está leyendo y armando tu plan… (~30 segundos)</div>}
