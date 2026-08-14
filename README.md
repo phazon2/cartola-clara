@@ -1,6 +1,19 @@
 # Cartola Clara
 
-**Tu cartola te dice dónde se te va la plata. Nadie te lo tradujo.**
+**Tu banco calculó cuánto puedes pagar. Tú nunca viste ese número.**
+
+## La afirmación estructural
+
+**El acreedor fija las condiciones porque es la única parte que calculó tu capacidad de pago. Cartola Clara la calcula desde tu lado y emite una contrapropuesta que la mesa de cobranza puede evaluar.**
+
+La barrera no es de ingeniería, es económica: el interés rotativo es el margen del acreedor, así que ningún banco puede ofrecerte de oficio la reestructuración que más te conviene sin canibalizar su propio ingreso.
+
+**Para quién es la salida:** la mesa de cobranza de tu acreedor. No para quien sube el documento. Ese es el
+movimiento: la categoría es la misma que la de otros, el destinatario no.
+
+## Competencia, nombrada
+
+Fintual, Destácame y los simuladores de repactación de cada banco. Todos miran tu deuda desde el lado del acreedor o te dan un puntaje. Ninguno emite un documento que tú puedas presentar. El nuestro se puede exponer como API para que ellos lo emitan.
 
 Sube tu cartola bancaria y en 30 segundos sabes qué te está drenando, cuánto puedes liberar este mes y qué deuda te está saliendo más cara.
 
